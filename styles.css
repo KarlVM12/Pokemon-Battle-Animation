@@ -1,0 +1,220 @@
+#border
+{
+    width:960px;
+    height:640px;
+    /*background-color:seagreen;*/
+    border: 5px salmon solid;
+    z-index:1;
+}
+
+
+#backgroundField
+{
+    width:960px;
+    height:640px;
+    background-image: url("Field1.png");
+    z-index:2;
+    display:grid;
+    grid-template-areas:
+    ". . . . . . c . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . g . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . .";
+
+    animation: battleStart 0.5s linear 11s 3 normal forwards;
+}
+
+
+@keyframes battleStart
+{
+    50% {opacity:0;}
+}
+
+#character
+{
+    height: auto; width:auto;
+    background-image:url("Character.png");
+    grid-area: c;
+    
+    animation: movePlayer 10s linear 1s 1 normal forwards;
+}
+
+
+@keyframes movePlayer
+{
+    0% {grid-area: 1 / 7 / 1 / 7;}
+    8% {grid-area: 2 / 7 / 2 / 7;}
+    16% {grid-area: 3 / 7 / 3 / 7;}
+    24% {grid-area: 4 / 7 / 4 / 7;}
+    32% {grid-area: 5 / 7 / 5 / 7;}
+    40% {grid-area: 6 / 7 / 6 / 7;}
+    48% {grid-area: 7 / 7 / 7 / 7;}
+    50% {grid-area: 8 / 7 / 8 / 7;}
+    62.5%{grid-area:8 / 8 / 8 / 8;}
+    75% {grid-area: 8 / 9 / 8 / 9;}
+    88.5%{grid-area: 8 / 10 / 8 / 10;}
+    100% {grid-area: 8 / 11 / 8 / 11;}
+}
+
+#groudon
+{
+    height: auto; width:auto;
+    background-image:url("pokeEnemy.png");
+    grid-area: g;
+    opacity:0;
+    animation: showGroudon 0.1s linear 24s 1 normal forwards;
+}
+
+@keyframes showGroudon
+{
+    0% {opacity:0;}
+    100% {opacity:100;grid-area: 8/10/8/10}
+}
+
+
+#backgroundBattle
+{
+
+    width:960px;
+    height:640px;
+    top:-640px;
+    left:0px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: battleLength 12s linear 12.2s 1 normal;
+    opacity:0;
+    position:relative;
+}
+
+@keyframes battleLength 
+{
+    0%{opacity:0;}
+    12%{opacity:100;}
+    100%{opacity:100;}
+}
+
+#battleImage
+{
+    width: 556px;
+    height: 371px;
+    background-image: url("arena3.png");
+    flex: 0 1 auto;
+    margin:auto;
+}
+
+#pokeEnemy
+{
+    width:96px;
+    height: 96px;
+    background-image:url("pokeEnemy2.png");
+    position: relative;
+    animation: moveInEnemy 4.3s linear 13.3s 1 normal forwards;
+    opacity: 0;
+}
+
+@keyframes moveInEnemy
+{
+    0% {left:556px; top:64px;}
+    23.25% {opacity:100; left:380px; top:64px;}
+    95%{opacity:100; left:380px; top:64px;}
+    96%{opacity:80; left:380px; top:64px;}
+    97%{opacity:60; left:380px; top:64px;}
+    98%{opacity:40; left:380px; top:64px;}
+    99%{opacity:20; left:380px; top:64px;}
+    100% {opacity:0; left:380px; top:64px;}
+}
+
+#pokePlayer
+{
+    width:128px;height: 96px;
+    background-image:url("pokePlayer.png");
+    background-repeat: no-repeat;
+    position: relative;
+    animation: moveInPlayer 4s linear 13.3s 1 normal forwards;
+    -webkit-animation: moveInPlayer 4s linear 13.3s 1 normal forwards;
+    opacity: 0;
+}
+
+@keyframes moveInPlayer
+{
+    0% {left:-96px; top:66px;width:128px;height: 96px;}
+    25% {opacity:100; left:80px; top:66px;width:128px;height: 96px;}
+    50%{opacity:100; left:80px; top:66px;background-image:url("playerThrow.png");width:128px;height: 96px;}
+    75%{opacity:100; left:80px; top:66px;background-image:url("playerThrew.png");width:128px;height: 96px;}
+    100%{opacity:100; left:80px; top:66px;background-image:url("pokePlayer.png");width:128px;height: 96px;}
+}
+
+#pokeball
+{
+    width:24px;
+    height:24px;
+    display:block;
+    background-image: url("pokeball.png");
+    background-repeat: no-repeat;
+    position:relative;
+    animation: pokeball 3s linear 16.1s 1 normal forwards;
+    opacity: 0;
+}
+
+@keyframes pokeball
+{
+        0% {opacity:100;left:174px;top:-31px;}
+        25%{opacity:100;left:420px;top:-112px;}
+        50%{opacity:100;left:420px;top:-112px;background-image:url("pokeballOpen.png");}
+        72% {opacity:100;left:420px;top:-112px;background-image:url("pokeball.png");}
+        78% {opacity:100;left:420px;top:-64px;background-image:url("pokeball.png");}
+            
+        80%    {opacity:100;left:419px;top:-64px;}
+        82%    {opacity:100;left:421px;top:-64px;}
+        84%    {opacity:100;left:420px;top:-64px;}
+
+        88%    {opacity:100;left:419px;top:-64px;}
+        90%    {opacity:100;left:421px;top:-64px;}
+        92%    {opacity:100;left:420px;top:-64px;}
+
+        96%    {opacity:100;left:419px;top:-64px;}
+        98%    {opacity:100;left:421px;top:-64px;}
+        100%    {opacity:100;left:420px;top:-64px;}
+
+}
+
+p
+{
+    color:white;
+    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+    position:absolute;
+    opacity: 0;
+    top:400px;
+    left:225px;
+}
+
+#firstText
+{
+    animation: showText 2s linear 13.3s 1 normal forwards;
+}
+
+#secondText
+{
+    animation: showText 2s linear 15.7s 1 normal forwards;
+}
+
+#thirdText
+{
+    animation: showText 4s linear 20s 1 normal forwards;
+}
+
+@keyframes showText
+{
+    0%{opacity: 100;}
+    99%{opacity: 100;}
+    100%{opacity:0;}
+}
+
